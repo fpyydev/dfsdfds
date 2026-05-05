@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROMOVE O LEVIH AGORA!!! 🔴</title>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #cc0000;
+    --red2: #ff1a1a;
+    --red3: #8b0000;
+    --red4: #ff4444;
+    --red5: #ff0000;
+    --cream: #fff0f0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--red3);
+    background-image:
+      radial-gradient(ellipse at 20% 20%, #ff000033 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, #8b000066 0%, transparent 50%);
+    font-family: 'Comic Neue', cursive;
+    color: var(--cream);
+    min-height: 100vh;
+    overflow-x: hidden;
+    cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><text y='28' font-size='28'>❤️</text></svg>") 16 16, auto;
+  }
+
+  /* Floating hearts background */
+  .heart-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .heart-bg span {
+    position: absolute;
+    bottom: -50px;
+    font-size: 1.5rem;
+    animation: floatUp linear infinite;
+    opacity: 0.15;
+  }
+
+  @keyframes floatUp {
+    0%   { transform: translateY(0) rotate(0deg); opacity: 0.15; }
+    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+  }
+
+  /* Main container */
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  /* HEADER */
+  header {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: popIn 0.8s cubic-bezier(.36,1.56,.64,1) both;
+  }
+
+  @keyframes popIn {
+    from { transform: scale(0) rotate(-10deg); opacity: 0; }
+    to   { transform: scale(1) rotate(0deg);   opacity: 1; }
+  }
+
+  .crown {
+    font-size: 4rem;
+    display: block;
+    animation: bounce 1s ease-in-out infinite alternate;
+  }
+
+  @keyframes bounce {
+    from { transform: translateY(0) rotate(-5deg); }
+    to   { transform: translateY(-18px) rotate(5deg); }
+  }
+
+  h1 {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    color: #ffcccc;
+    text-shadow:
+      3px 3px 0 var(--red3),
+      6px 6px 0 #4a0000,
+      0 0 40px #ff000099;
+    letter-spacing: 3px;
+    line-height: 1.1;
+    margin: 10px 0;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    color: #ffaaaa;
+    background: #ff000033;
+    border: 2px dashed #ff4444;
+    border-radius: 12px;
+    padding: 10px 20px;
+    display: inline-block;
+    margin-top: 12px;
+    animation: wiggle 2s ease-in-out infinite;
+  }
+
+  @keyframes wiggle {
+    0%,100% { transform: rotate(-1deg); }
+    50%      { transform: rotate(1deg);  }
+  }
+
+  /* REASONS */
+  .reasons {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .reason-card {
+    background: linear-gradient(135deg, #7a0000 0%, #cc0000 50%, #7a0000 100%);
+    border: 3px solid var(--red4);
+    border-radius: 20px;
+    padding: 22px 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow:
+      0 8px 30px #00000066,
+      inset 0 1px 0 #ff666655;
+    transform: translateX(-120%);
+    opacity: 0;
+    animation: slideIn 0.6s cubic-bezier(.36,1.3,.64,1) forwards;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .reason-card:hover {
+    transform: scale(1.03) rotate(-0.5deg) !important;
+    box-shadow: 0 14px 40px #ff000055, inset 0 1px 0 #ff666655;
+  }
+
+  .reason-card:nth-child(1) { animation-delay: 0.3s; }
+  .reason-card:nth-child(2) { animation-delay: 0.5s; }
+  .reason-card:nth-child(3) { animation-delay: 0.7s; }
+  .reason-card:nth-child(4) { animation-delay: 0.9s; }
+  .reason-card:nth-child(5) { animation-delay: 1.1s; }
+  .reason-card:nth-child(6) { animation-delay: 1.3s; }
+
+  @keyframes slideIn {
+    to { transform: translateX(0); opacity: 1; }
+  }
+
+  .reason-number {
+    font-family: 'Bangers', cursive;
+    font-size: 3.5rem;
+    color: #ffcccc;
+    text-shadow: 3px 3px 0 var(--red3);
+    min-width: 60px;
+    text-align: center;
+    line-height: 1;
+    filter: drop-shadow(0 0 8px #ff000099);
+  }
+
+  .reason-emoji {
+    font-size: 2.4rem;
+    animation: spin3d 4s ease-in-out infinite;
+    min-width: 46px;
+    text-align: center;
+  }
+
+  @keyframes spin3d {
+    0%,100% { transform: rotateY(0deg) scale(1); }
+    50%      { transform: rotateY(360deg) scale(1.2); }
+  }
+
+  .reason-text {
+    flex: 1;
+  }
+
+  .reason-title {
+    font-family: 'Bangers', cursive;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    color: #ffeeee;
+    text-shadow: 1px 1px 0 var(--red3);
+  }
+
+  .reason-desc {
+    font-size: 1rem;
+    color: #ffcccc;
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  /* Special card 4 - romance */
+  .reason-card.special {
+    background: linear-gradient(135deg, #6a0000 0%, #dd0000 40%, #aa0033 100%);
+    border-color: #ff88aa;
+    animation-delay: 0.9s;
+  }
+
+  .reason-card.special .reason-title {
+    color: #ffdddd;
+  }
+
+  /* CTA section */
+  .cta {
+    text-align: center;
+    margin-top: 60px;
+    animation: fadeInUp 0.8s 1.8s both;
+  }
+
+  @keyframes fadeInUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+
+  .cta-text {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    color: #ffcccc;
+    text-shadow: 3px 3px 0 var(--red3);
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+  }
+
+  .btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff0000, #cc0000, #ff0000);
+    background-size: 200% 200%;
+    color: #fff;
+    font-family: 'Bangers', cursive;
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    padding: 18px 50px;
+    border-radius: 50px;
+    border: 3px solid #ff6666;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 6px 30px #ff000077, 0 0 0 0 #ff0000;
+    animation: pulse 1.5s ease-in-out infinite, gradShift 3s ease infinite;
+    transition: transform 0.1s;
+  }
+
+  .btn:active { transform: scale(0.95); }
+
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 6px 30px #ff000077, 0 0 0 0 #ff000055; }
+    50%      { box-shadow: 0 6px 40px #ff000099, 0 0 0 14px transparent; }
+  }
+
+  @keyframes gradShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Confetti-like ticker */
+  .ticker {
+    background: var(--red);
+    border-top: 3px solid var(--red4);
+    border-bottom: 3px solid var(--red4);
+    padding: 12px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top: 60px;
+    font-family: 'Bangers', cursive;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    color: #ffcccc;
+    position: relative;
+  }
+
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 18s linear infinite;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(100vw); }
+    to   { transform: translateX(-100%); }
+  }
+
+  /* Stars decoration */
+  .stars {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .star {
+    position: absolute;
+    width: 4px; height: 4px;
+    background: #ff666633;
+    border-radius: 50%;
+    animation: twinkle ease-in-out infinite;
+  }
+
+  @keyframes twinkle {
+    0%,100% { opacity: 0.1; transform: scale(1); }
+    50%      { opacity: 0.6; transform: scale(2); }
+  }
+
+  /* Shake animation for h1 on hover */
+  h1:hover {
+    animation: shake 0.4s;
+  }
+
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    20%      { transform: translateX(-8px) rotate(-2deg); }
+    40%      { transform: translateX(8px) rotate(2deg); }
+    60%      { transform: translateX(-5px); }
+    80%      { transform: translateX(5px); }
+  }
+
+  /* Mobile */
+  @media (max-width: 540px) {
+    .reason-card { padding: 16px 16px; gap: 12px; }
+    .reason-number { font-size: 2.4rem; min-width: 40px; }
+    .reason-emoji { font-size: 1.8rem; min-width: 34px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Floating hearts background -->
+<div class="heart-bg" id="heartsBg"></div>
+
+<!-- Twinkling stars -->
+<div class="stars" id="stars"></div>
+
+<div class="container">
+  <header>
+    <span class="crown">👑</span>
+    <h1>LEVIH MERECE<br>SER SUB DONO!!</h1>
+    <p class="subtitle">📜 A lista oficial de motivos irrefutáveis™ 📜</p>
+  </header>
+
+  <div class="reasons">
+
+    <div class="reason-card">
+      <div class="reason-number">1</div>
+      <div class="reason-emoji">😎</div>
+      <div class="reason-text">
+        <div class="reason-title">Motivo 1 — EU SOU LEGAL</div>
+        <div class="reason-desc">Isso já deveria ser suficiente, sei lá</div>
+      </div>
+    </div>
+
+    <div class="reason-card">
+      <div class="reason-number">2</div>
+      <div class="reason-emoji">🤷</div>
+      <div class="reason-text">
+        <div class="reason-title">Motivo 2 — PQ SIM</div>
+        <div class="reason-desc">Argumento sólido. Impecável. Impossível refutar.</div>
+      </div>
+    </div>
+
+    <div class="reason-card">
+      <div class="reason-number">3</div>
+      <div class="reason-emoji">3️⃣</div>
+      <div class="reason-text">
+        <div class="reason-title">Motivo 3 — TRÊS</div>
+        <div class="reason-desc">Esse motivo é o três. Simplesmente três.</div>
+      </div>
+    </div>
+
+    <div class="reason-card special">
+      <div class="reason-number">4</div>
+      <div class="reason-emoji">💘</div>
+      <div class="reason-text">
+        <div class="reason-title">Motivo 4 — SOU SEU AMIGO E SEU NAMORADO</div>
+        <div class="reason-desc">Mereço TUDO. Não tem discussão. Tô certo. É isso.</div>
+      </div>
+    </div>
+
+    <div class="reason-card">
+      <div class="reason-number">5</div>
+      <div class="reason-emoji">🤔</div>
+      <div class="reason-text">
+        <div class="reason-title">Motivo 5 — NÃO SEI</div>
+        <div class="reason-desc">Não sei qual é o motivo mas com certeza é muito bom</div>
+      </div>
+    </div>
+
+    <div class="reason-card">
+      <div class="reason-number">6</div>
+      <div class="reason-emoji">🔥</div>
+      <div class="reason-text">
+        <div class="reason-title">Motivo 6 — PQ EU SOU TOP</div>
+        <div class="reason-desc">O mais importante. O definitivo. Case closed. 🏆</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cta">
+    <p class="cta-text">ENTÃO LEVIH,<br>O QUE VOCÊ TÁ ESPERANDO??</p>
+    <a class="btn" onclick="alert('👑 PROMOVIDO!! Parabéns Levih!! 👑')">
+      👑 ME PROMOVE AGORA 👑
+    </a>
+  </div>
+</div>
+
+<!-- Ticker -->
+<div class="ticker">
+  <span class="ticker-inner">
+    ❤️ LEVIH SUB DONO ❤️ &nbsp;&nbsp;&nbsp; 👑 ELE É TOP 👑 &nbsp;&nbsp;&nbsp; 💘 SEU NAMORADO MERECE 💘 &nbsp;&nbsp;&nbsp; 🔥 PQ SIM PQ SIM PQ SIM 🔥 &nbsp;&nbsp;&nbsp; 😎 O MAIS LEGAL DO SERVIDOR 😎 &nbsp;&nbsp;&nbsp; 👑 PROMOVE O LEVIH 👑 &nbsp;&nbsp;&nbsp; ❤️ ELE TEM 6 MOTIVOS ❤️ &nbsp;&nbsp;&nbsp;
+  </span>
+</div>
+
+<script>
+  // Generate floating hearts
+  const hbg = document.getElementById('heartsBg');
+  const emojis = ['❤️','🔴','💔','♥️','🫀','💗','💞','🩸'];
+  for (let i = 0; i < 30; i++) {
+    const s = document.createElement('span');
+    s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    s.style.left = Math.random() * 100 + '%';
+    s.style.animationDuration = (8 + Math.random() * 14) + 's';
+    s.style.animationDelay = (Math.random() * 12) + 's';
+    s.style.fontSize = (0.8 + Math.random() * 1.8) + 'rem';
+    hbg.appendChild(s);
+  }
+
+  // Generate stars
+  const starsEl = document.getElementById('stars');
+  for (let i = 0; i < 60; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top  = Math.random() * 100 + '%';
+    s.style.animationDuration = (2 + Math.random() * 4) + 's';
+    s.style.animationDelay    = (Math.random() * 5) + 's';
+    s.style.width = s.style.height = (2 + Math.random() * 4) + 'px';
+    starsEl.appendChild(s);
+  }
+
+  // Click confetti
+  document.addEventListener('click', (e) => {
+    for (let i = 0; i < 8; i++) {
+      const el = document.createElement('span');
+      el.textContent = ['❤️','🔴','💘','👑','🔥','✨'][Math.floor(Math.random()*6)];
+      el.style.cssText = `
+        position:fixed; left:${e.clientX}px; top:${e.clientY}px;
+        pointer-events:none; z-index:9999; font-size:${1+Math.random()*1.5}rem;
+        transition: transform 1s ease, opacity 1s;
+        transform: translate(0,0);
+      `;
+      document.body.appendChild(el);
+      const angle = Math.random() * 360;
+      const dist = 60 + Math.random() * 100;
+      setTimeout(() => {
+        el.style.transform = `translate(${Math.cos(angle)*dist}px, ${Math.sin(angle)*dist - 60}px)`;
+        el.style.opacity = '0';
+      }, 10);
+      setTimeout(() => el.remove(), 1100);
+    }
+  });
+</script>
+</body>
+</html>
