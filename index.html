@@ -3,467 +3,616 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PROMOVE O LEVIH AGORA!!! 🔴</title>
-<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+<title>LEVIH PROMOVE O FPYY!!! 🔴</title>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --red: #cc0000;
-    --red2: #ff1a1a;
-    --red3: #8b0000;
-    --red4: #ff4444;
-    --red5: #ff0000;
+    --r1: #cc0000;
+    --r2: #ff1a1a;
+    --r3: #6a0000;
+    --r4: #ff4444;
+    --r5: #8b0000;
     --cream: #fff0f0;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background-color: var(--red3);
+    background: var(--r3);
     background-image:
-      radial-gradient(ellipse at 20% 20%, #ff000033 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 80%, #8b000066 0%, transparent 50%);
+      radial-gradient(ellipse at 10% 10%, #ff000044 0%, transparent 55%),
+      radial-gradient(ellipse at 90% 90%, #3a000066 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 50%, #88000022 0%, transparent 70%);
     font-family: 'Comic Neue', cursive;
     color: var(--cream);
     min-height: 100vh;
     overflow-x: hidden;
-    cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><text y='28' font-size='28'>❤️</text></svg>") 16 16, auto;
+    cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='28' font-size='26'>👑</text></svg>") 16 16, auto;
   }
 
-  /* Floating hearts background */
-  .heart-bg {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+  /* ── PARTICLES ── */
+  #particles {
+    position: fixed; inset: 0;
     pointer-events: none;
     z-index: 0;
     overflow: hidden;
   }
-
-  .heart-bg span {
+  #particles span {
     position: absolute;
-    bottom: -50px;
-    font-size: 1.5rem;
-    animation: floatUp linear infinite;
-    opacity: 0.15;
+    bottom: -60px;
+    animation: rise linear infinite;
+    opacity: 0;
+    user-select: none;
+  }
+  @keyframes rise {
+    0%   { transform: translateY(0)   rotate(0deg)   scale(1);   opacity: .2; }
+    80%  { opacity: .25; }
+    100% { transform: translateY(-110vh) rotate(720deg) scale(.6); opacity: 0; }
   }
 
-  @keyframes floatUp {
-    0%   { transform: translateY(0) rotate(0deg); opacity: 0.15; }
-    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: .4;
   }
 
-  /* Main container */
-  .container {
+  /* ── LAYOUT ── */
+  .wrap {
     position: relative;
     z-index: 1;
-    max-width: 860px;
+    max-width: 880px;
     margin: 0 auto;
-    padding: 40px 20px 80px;
+    padding: 50px 20px 100px;
   }
 
-  /* HEADER */
+  /* ── HEADER ── */
   header {
     text-align: center;
-    margin-bottom: 50px;
-    animation: popIn 0.8s cubic-bezier(.36,1.56,.64,1) both;
+    margin-bottom: 55px;
   }
 
-  @keyframes popIn {
-    from { transform: scale(0) rotate(-10deg); opacity: 0; }
-    to   { transform: scale(1) rotate(0deg);   opacity: 1; }
+  .badge {
+    display: inline-block;
+    background: #ff000033;
+    border: 2px solid #ff4444;
+    border-radius: 50px;
+    padding: 6px 22px;
+    font-size: .95rem;
+    letter-spacing: 2px;
+    color: #ffaaaa;
+    text-transform: uppercase;
+    animation: fadeDown .7s .1s both;
+    margin-bottom: 18px;
   }
 
-  .crown {
-    font-size: 4rem;
+  @keyframes fadeDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to   { transform: translateY(0);     opacity: 1; }
+  }
+
+  .crown-wrap {
+    font-size: 5rem;
     display: block;
-    animation: bounce 1s ease-in-out infinite alternate;
+    animation: crownFloat 2s ease-in-out infinite alternate, fadeDown .6s both;
+    filter: drop-shadow(0 0 20px #ff000099);
+    margin-bottom: 8px;
   }
 
-  @keyframes bounce {
-    from { transform: translateY(0) rotate(-5deg); }
-    to   { transform: translateY(-18px) rotate(5deg); }
+  @keyframes crownFloat {
+    from { transform: translateY(0) rotate(-6deg) scale(1);   }
+    to   { transform: translateY(-20px) rotate(6deg) scale(1.1); }
   }
 
   h1 {
     font-family: 'Bangers', cursive;
-    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-size: clamp(2.8rem, 10vw, 5.8rem);
+    line-height: 1;
     color: #ffcccc;
     text-shadow:
-      3px 3px 0 var(--red3),
-      6px 6px 0 #4a0000,
-      0 0 40px #ff000099;
-    letter-spacing: 3px;
-    line-height: 1.1;
-    margin: 10px 0;
+      4px 4px 0 #3a0000,
+      8px 8px 0 #1a0000,
+      0 0 60px #ff000077;
+    letter-spacing: 4px;
+    animation: popIn .8s .2s cubic-bezier(.36,1.56,.64,1) both;
   }
 
-  .subtitle {
-    font-size: 1.2rem;
+  @keyframes popIn {
+    from { transform: scale(.3) rotate(-15deg); opacity: 0; }
+    to   { transform: scale(1)  rotate(0deg);   opacity: 1; }
+  }
+
+  .h1-accent { color: #ff6666; }
+
+  .subhead {
+    margin-top: 16px;
+    font-size: 1.1rem;
     color: #ffaaaa;
-    background: #ff000033;
-    border: 2px dashed #ff4444;
-    border-radius: 12px;
-    padding: 10px 20px;
+    background: #ff000022;
+    border: 2px dashed #cc0000;
+    border-radius: 14px;
+    padding: 10px 24px;
     display: inline-block;
-    margin-top: 12px;
-    animation: wiggle 2s ease-in-out infinite;
+    animation: wiggle 3s ease-in-out infinite, fadeDown .8s .5s both;
   }
 
   @keyframes wiggle {
-    0%,100% { transform: rotate(-1deg); }
-    50%      { transform: rotate(1deg);  }
+    0%,100% { transform: rotate(-1.5deg); }
+    50%      { transform: rotate(1.5deg); }
   }
 
-  /* REASONS */
-  .reasons {
+  /* ── LEVIH DECIDES BOX ── */
+  .levih-box {
+    background: linear-gradient(135deg, #3a0000 0%, #880000 50%, #3a0000 100%);
+    border: 3px solid #ff6666;
+    border-radius: 24px;
+    padding: 22px 30px;
+    text-align: center;
+    margin-bottom: 45px;
+    box-shadow: 0 0 40px #ff000055, inset 0 1px 0 #ff444433;
+    animation: fadeUp .8s .6s both;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .levih-box::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      #ff000011 10px,
+      #ff000011 11px
+    );
+  }
+
+  .levih-box p {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(1.3rem, 4vw, 2rem);
+    letter-spacing: 2px;
+    color: #ffdddd;
+    text-shadow: 2px 2px 0 #3a0000;
+    position: relative;
+    z-index: 1;
+  }
+
+  .levih-box .levih-name {
+    color: #ff6666;
+    font-size: 1.4em;
+    display: block;
+    margin-top: 4px;
+    animation: glow 1.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from { text-shadow: 2px 2px 0 #3a0000, 0 0 10px #ff0000; }
+    to   { text-shadow: 2px 2px 0 #3a0000, 0 0 30px #ff0000, 0 0 50px #ff444499; }
+  }
+
+  @keyframes fadeUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+
+  /* ── REASON CARDS ── */
+  .section-title {
+    font-family: 'Bangers', cursive;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    color: #ff8888;
+    text-align: center;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 0 #3a0000;
+    animation: fadeUp .6s .8s both;
+  }
+
+  .cards {
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 18px;
   }
 
-  .reason-card {
-    background: linear-gradient(135deg, #7a0000 0%, #cc0000 50%, #7a0000 100%);
-    border: 3px solid var(--red4);
+  .card {
+    background: linear-gradient(120deg, #5a0000 0%, #aa0000 60%, #5a0000 100%);
+    border: 2px solid #cc3333;
     border-radius: 20px;
-    padding: 22px 28px;
+    padding: 20px 24px;
     display: flex;
     align-items: center;
-    gap: 20px;
-    box-shadow:
-      0 8px 30px #00000066,
-      inset 0 1px 0 #ff666655;
-    transform: translateX(-120%);
+    gap: 18px;
+    box-shadow: 0 6px 24px #00000055, inset 0 1px 0 #ff555533;
     opacity: 0;
-    animation: slideIn 0.6s cubic-bezier(.36,1.3,.64,1) forwards;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transform: translateX(-140%);
+    animation: slideIn .65s cubic-bezier(.36,1.3,.64,1) forwards;
+    transition: transform .25s, box-shadow .25s, border-color .25s;
+    position: relative;
+    overflow: hidden;
   }
 
-  .reason-card:hover {
-    transform: scale(1.03) rotate(-0.5deg) !important;
-    box-shadow: 0 14px 40px #ff000055, inset 0 1px 0 #ff666655;
+  .card::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at 50% 50%, #ff000015, transparent 60%);
+    opacity: 0;
+    transition: opacity .3s;
   }
 
-  .reason-card:nth-child(1) { animation-delay: 0.3s; }
-  .reason-card:nth-child(2) { animation-delay: 0.5s; }
-  .reason-card:nth-child(3) { animation-delay: 0.7s; }
-  .reason-card:nth-child(4) { animation-delay: 0.9s; }
-  .reason-card:nth-child(5) { animation-delay: 1.1s; }
-  .reason-card:nth-child(6) { animation-delay: 1.3s; }
+  .card:hover { transform: scale(1.04) rotate(-.4deg) !important; box-shadow: 0 12px 40px #ff000066, inset 0 1px 0 #ff555533; border-color: #ff5555; }
+  .card:hover::after { opacity: 1; }
+
+  .card:nth-child(1) { animation-delay: 1.0s; }
+  .card:nth-child(2) { animation-delay: 1.15s; }
+  .card:nth-child(3) { animation-delay: 1.3s; }
+  .card:nth-child(4) { animation-delay: 1.45s; }
+  .card:nth-child(5) { animation-delay: 1.6s; }
+  .card:nth-child(6) { animation-delay: 1.75s; }
 
   @keyframes slideIn {
     to { transform: translateX(0); opacity: 1; }
   }
 
-  .reason-number {
+  .num {
     font-family: 'Bangers', cursive;
-    font-size: 3.5rem;
-    color: #ffcccc;
-    text-shadow: 3px 3px 0 var(--red3);
-    min-width: 60px;
+    font-size: 3.8rem;
+    color: #ffbbbb;
+    text-shadow: 3px 3px 0 #3a0000;
+    min-width: 58px;
     text-align: center;
     line-height: 1;
-    filter: drop-shadow(0 0 8px #ff000099);
+    filter: drop-shadow(0 0 8px #ff000077);
   }
 
-  .reason-emoji {
-    font-size: 2.4rem;
-    animation: spin3d 4s ease-in-out infinite;
+  .emoji {
+    font-size: 2.6rem;
     min-width: 46px;
     text-align: center;
+    animation: emojiSpin 5s ease-in-out infinite;
   }
 
-  @keyframes spin3d {
-    0%,100% { transform: rotateY(0deg) scale(1); }
-    50%      { transform: rotateY(360deg) scale(1.2); }
+  @keyframes emojiSpin {
+    0%,100% { transform: rotateY(0deg)   scale(1);   }
+    45%,55% { transform: rotateY(180deg) scale(1.25); }
   }
 
-  .reason-text {
-    flex: 1;
-  }
+  .card-body { flex: 1; }
 
-  .reason-title {
+  .card-title {
     font-family: 'Bangers', cursive;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     letter-spacing: 1px;
     color: #ffeeee;
-    text-shadow: 1px 1px 0 var(--red3);
+    text-shadow: 1px 1px 0 #3a0000;
   }
 
-  .reason-desc {
-    font-size: 1rem;
-    color: #ffcccc;
-    margin-top: 4px;
+  .card-sub {
+    font-size: .95rem;
+    color: #ffbbbb;
+    margin-top: 5px;
     font-style: italic;
   }
 
-  /* Special card 4 - romance */
-  .reason-card.special {
-    background: linear-gradient(135deg, #6a0000 0%, #dd0000 40%, #aa0033 100%);
+  /* special card 4 */
+  .card.romance {
+    background: linear-gradient(120deg, #4a0018 0%, #aa0033 60%, #4a0018 100%);
     border-color: #ff88aa;
-    animation-delay: 0.9s;
   }
+  .card.romance .card-title { color: #ffdde8; }
 
-  .reason-card.special .reason-title {
-    color: #ffdddd;
-  }
-
-  /* CTA section */
+  /* ── CTA ── */
   .cta {
     text-align: center;
-    margin-top: 60px;
-    animation: fadeInUp 0.8s 1.8s both;
+    margin-top: 65px;
+    animation: fadeUp .8s 2.1s both;
   }
 
-  @keyframes fadeInUp {
-    from { transform: translateY(40px); opacity: 0; }
-    to   { transform: translateY(0);    opacity: 1; }
-  }
-
-  .cta-text {
+  .cta-title {
     font-family: 'Bangers', cursive;
-    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    letter-spacing: 3px;
     color: #ffcccc;
-    text-shadow: 3px 3px 0 var(--red3);
-    letter-spacing: 2px;
-    margin-bottom: 24px;
+    text-shadow: 4px 4px 0 #3a0000;
+    margin-bottom: 10px;
   }
+
+  .cta-sub {
+    color: #ffaaaa;
+    font-size: 1rem;
+    margin-bottom: 28px;
+  }
+
+  .btn-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
   .btn {
-    display: inline-block;
-    background: linear-gradient(135deg, #ff0000, #cc0000, #ff0000);
-    background-size: 200% 200%;
-    color: #fff;
     font-family: 'Bangers', cursive;
-    font-size: 1.8rem;
-    letter-spacing: 3px;
-    padding: 18px 50px;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    padding: 16px 42px;
     border-radius: 50px;
-    border: 3px solid #ff6666;
-    text-decoration: none;
+    border: none;
     cursor: pointer;
-    box-shadow: 0 6px 30px #ff000077, 0 0 0 0 #ff0000;
-    animation: pulse 1.5s ease-in-out infinite, gradShift 3s ease infinite;
-    transition: transform 0.1s;
+    transition: transform .15s;
+    position: relative;
+    overflow: hidden;
   }
 
-  .btn:active { transform: scale(0.95); }
-
-  @keyframes pulse {
-    0%,100% { box-shadow: 0 6px 30px #ff000077, 0 0 0 0 #ff000055; }
-    50%      { box-shadow: 0 6px 40px #ff000099, 0 0 0 14px transparent; }
+  .btn::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, #ffffff22, transparent);
+    pointer-events: none;
   }
 
-  @keyframes gradShift {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  .btn:active { transform: scale(.93); }
+
+  .btn-yes {
+    background: linear-gradient(135deg, #ff0000, #cc0000);
+    color: #fff;
+    box-shadow: 0 6px 30px #ff000088;
+    animation: pulseBig 1.4s ease-in-out infinite;
   }
 
-  /* Confetti-like ticker */
+  @keyframes pulseBig {
+    0%,100% { box-shadow: 0 6px 30px #ff000088, 0 0 0 0 #ff000044; }
+    50%      { box-shadow: 0 8px 40px #ff0000aa, 0 0 0 16px transparent; }
+  }
+
+  .btn-no {
+    background: linear-gradient(135deg, #3a0000, #5a0000);
+    color: #ff8888;
+    border: 2px solid #660000;
+    font-size: 1rem;
+    padding: 14px 28px;
+  }
+
+  /* ── TICKER ── */
   .ticker {
-    background: var(--red);
-    border-top: 3px solid var(--red4);
-    border-bottom: 3px solid var(--red4);
-    padding: 12px 0;
+    background: var(--r1);
+    border-top: 3px solid var(--r4);
+    border-bottom: 3px solid var(--r4);
+    padding: 13px 0;
     overflow: hidden;
     white-space: nowrap;
-    margin-top: 60px;
+    margin-top: 65px;
     font-family: 'Bangers', cursive;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     letter-spacing: 3px;
     color: #ffcccc;
-    position: relative;
+    box-shadow: 0 -6px 20px #00000044, 0 6px 20px #00000044;
   }
 
-  .ticker-inner {
+  .ticker span {
     display: inline-block;
-    animation: ticker 18s linear infinite;
+    animation: tick 20s linear infinite;
   }
 
-  @keyframes ticker {
+  @keyframes tick {
     from { transform: translateX(100vw); }
     to   { transform: translateX(-100%); }
   }
 
-  /* Stars decoration */
-  .stars {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .star {
-    position: absolute;
-    width: 4px; height: 4px;
-    background: #ff666633;
-    border-radius: 50%;
-    animation: twinkle ease-in-out infinite;
-  }
-
-  @keyframes twinkle {
-    0%,100% { opacity: 0.1; transform: scale(1); }
-    50%      { opacity: 0.6; transform: scale(2); }
-  }
-
-  /* Shake animation for h1 on hover */
-  h1:hover {
-    animation: shake 0.4s;
-  }
-
-  @keyframes shake {
-    0%,100% { transform: translateX(0); }
-    20%      { transform: translateX(-8px) rotate(-2deg); }
-    40%      { transform: translateX(8px) rotate(2deg); }
-    60%      { transform: translateX(-5px); }
-    80%      { transform: translateX(5px); }
-  }
-
-  /* Mobile */
-  @media (max-width: 540px) {
-    .reason-card { padding: 16px 16px; gap: 12px; }
-    .reason-number { font-size: 2.4rem; min-width: 40px; }
-    .reason-emoji { font-size: 1.8rem; min-width: 34px; }
+  /* ── MOBILE ── */
+  @media (max-width: 520px) {
+    .card { padding: 14px; gap: 10px; }
+    .num { font-size: 2.6rem; min-width: 42px; }
+    .emoji { font-size: 1.9rem; min-width: 34px; }
   }
 </style>
 </head>
 <body>
 
-<!-- Floating hearts background -->
-<div class="heart-bg" id="heartsBg"></div>
+<div id="particles"></div>
 
-<!-- Twinkling stars -->
-<div class="stars" id="stars"></div>
+<div class="wrap">
 
-<div class="container">
+  <!-- HEADER -->
   <header>
-    <span class="crown">👑</span>
-    <h1>LEVIH MERECE<br>SER SUB DONO!!</h1>
-    <p class="subtitle">📜 A lista oficial de motivos irrefutáveis™ 📜</p>
+    <div class="badge">⚔️ petição oficial ⚔️</div>
+    <span class="crown-wrap">👑</span>
+    <h1>FPYY<br><span class="h1-accent">MERECE</span><br>SER SUB DONO!!</h1>
+    <p class="subhead">📜 6 motivos que o LEVIH não pode ignorar 📜</p>
   </header>
 
-  <div class="reasons">
+  <!-- LEVIH DECIDES -->
+  <div class="levih-box">
+    <p>
+      ⚠️ A DECISÃO FINAL É DO:<br>
+      <span class="levih-name">👑 L E V I H 👑</span>
+      e ele vai fazer a escolha certa (me promove)
+    </p>
+  </div>
 
-    <div class="reason-card">
-      <div class="reason-number">1</div>
-      <div class="reason-emoji">😎</div>
-      <div class="reason-text">
-        <div class="reason-title">Motivo 1 — EU SOU LEGAL</div>
-        <div class="reason-desc">Isso já deveria ser suficiente, sei lá</div>
+  <!-- REASONS -->
+  <p class="section-title">🔴 OS MOTIVOS IRREFUTÁVEIS™ 🔴</p>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="num">1</div>
+      <div class="emoji">😎</div>
+      <div class="card-body">
+        <div class="card-title">EU SOU LEGAL</div>
+        <div class="card-sub">cara eu sou legal demais isso nao tem nem discussao para de questionar vai logo</div>
       </div>
     </div>
 
-    <div class="reason-card">
-      <div class="reason-number">2</div>
-      <div class="reason-emoji">🤷</div>
-      <div class="reason-text">
-        <div class="reason-title">Motivo 2 — PQ SIM</div>
-        <div class="reason-desc">Argumento sólido. Impecável. Impossível refutar.</div>
+    <div class="card">
+      <div class="num">2</div>
+      <div class="emoji">🤷</div>
+      <div class="card-body">
+        <div class="card-title">PQ SIM</div>
+        <div class="card-sub">pq sim levih nao precisa de mais explicacao pq sim e pq sim acabou</div>
       </div>
     </div>
 
-    <div class="reason-card">
-      <div class="reason-number">3</div>
-      <div class="reason-emoji">3️⃣</div>
-      <div class="reason-text">
-        <div class="reason-title">Motivo 3 — TRÊS</div>
-        <div class="reason-desc">Esse motivo é o três. Simplesmente três.</div>
+    <div class="card">
+      <div class="num">3</div>
+      <div class="emoji">3️⃣</div>
+      <div class="card-body">
+        <div class="card-title">TRÊS</div>
+        <div class="card-sub">o motivo e tres nao sei explicar melhor e tres e pronto nao pergunta</div>
       </div>
     </div>
 
-    <div class="reason-card special">
-      <div class="reason-number">4</div>
-      <div class="reason-emoji">💘</div>
-      <div class="reason-text">
-        <div class="reason-title">Motivo 4 — SOU SEU AMIGO E SEU NAMORADO</div>
-        <div class="reason-desc">Mereço TUDO. Não tem discussão. Tô certo. É isso.</div>
+    <div class="card romance">
+      <div class="num">4</div>
+      <div class="emoji">💘</div>
+      <div class="card-body">
+        <div class="card-title">SOU SEU AMIGO E SEU NAMORADO</div>
+        <div class="card-sub">sou seu namorado e seu amigo entao eu mereço tudo inclusive sub dono inclusive mais coisas</div>
       </div>
     </div>
 
-    <div class="reason-card">
-      <div class="reason-number">5</div>
-      <div class="reason-emoji">🤔</div>
-      <div class="reason-text">
-        <div class="reason-title">Motivo 5 — NÃO SEI</div>
-        <div class="reason-desc">Não sei qual é o motivo mas com certeza é muito bom</div>
+    <div class="card">
+      <div class="num">5</div>
+      <div class="emoji">🤔</div>
+      <div class="card-body">
+        <div class="card-title">NÃO SEI</div>
+        <div class="card-sub">cara eu nao sei qual e o motivo mas eu sei que e muito bom confia em mim levih confia</div>
       </div>
     </div>
 
-    <div class="reason-card">
-      <div class="reason-number">6</div>
-      <div class="reason-emoji">🔥</div>
-      <div class="reason-text">
-        <div class="reason-title">Motivo 6 — PQ EU SOU TOP</div>
-        <div class="reason-desc">O mais importante. O definitivo. Case closed. 🏆</div>
+    <div class="card">
+      <div class="num">6</div>
+      <div class="emoji">🔥</div>
+      <div class="card-body">
+        <div class="card-title">PQ EU SOU TOP</div>
+        <div class="card-sub">eu sou top levih voce sabe que eu sou top todo mundo sabe nao tem nem o que falar</div>
       </div>
     </div>
 
   </div>
 
+  <!-- CTA -->
   <div class="cta">
-    <p class="cta-text">ENTÃO LEVIH,<br>O QUE VOCÊ TÁ ESPERANDO??</p>
-    <a class="btn" onclick="alert('👑 PROMOVIDO!! Parabéns Levih!! 👑')">
-      👑 ME PROMOVE AGORA 👑
-    </a>
+    <p class="cta-title">ENTÃO LEVIH,<br>VAI PROMOVER??</p>
+    <p class="cta-sub">Escolha com sabedoria. (A resposta correta é sim.)</p>
+    <div class="btn-group">
+      <button class="btn btn-yes" onclick="simClick()">👑 SIM, PROMOVO O FPYY 👑</button>
+      <button class="btn btn-no" id="btnNao" onmouseover="fugeBtn()" onclick="naoClick()">não...</button>
+    </div>
   </div>
+
 </div>
 
-<!-- Ticker -->
+<!-- TICKER -->
 <div class="ticker">
-  <span class="ticker-inner">
-    ❤️ LEVIH SUB DONO ❤️ &nbsp;&nbsp;&nbsp; 👑 ELE É TOP 👑 &nbsp;&nbsp;&nbsp; 💘 SEU NAMORADO MERECE 💘 &nbsp;&nbsp;&nbsp; 🔥 PQ SIM PQ SIM PQ SIM 🔥 &nbsp;&nbsp;&nbsp; 😎 O MAIS LEGAL DO SERVIDOR 😎 &nbsp;&nbsp;&nbsp; 👑 PROMOVE O LEVIH 👑 &nbsp;&nbsp;&nbsp; ❤️ ELE TEM 6 MOTIVOS ❤️ &nbsp;&nbsp;&nbsp;
+  <span>
+    👑 FPYY SUB DONO 👑 &nbsp;&nbsp;&nbsp;
+    ❤️ LEVIH DECIDE E VAI DECIDIR CERTO ❤️ &nbsp;&nbsp;&nbsp;
+    🔥 PQ SIM PQ SIM PQ SIM 🔥 &nbsp;&nbsp;&nbsp;
+    😎 FPYY É LEGAL DEMAIS 😎 &nbsp;&nbsp;&nbsp;
+    💘 SEU NAMORADO MERECE TUDO 💘 &nbsp;&nbsp;&nbsp;
+    3️⃣ MOTIVO TRÊS: TRÊS 3️⃣ &nbsp;&nbsp;&nbsp;
+    👑 FPYY SUB DONO AGORA 👑 &nbsp;&nbsp;&nbsp;
   </span>
 </div>
 
 <script>
-  // Generate floating hearts
-  const hbg = document.getElementById('heartsBg');
-  const emojis = ['❤️','🔴','💔','♥️','🫀','💗','💞','🩸'];
-  for (let i = 0; i < 30; i++) {
+  /* ── Particles ── */
+  const pEl = document.getElementById('particles');
+  const set = ['❤️','🔴','👑','🔥','💘','⚡','🩸','♥️'];
+  for (let i = 0; i < 38; i++) {
     const s = document.createElement('span');
-    s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-    s.style.left = Math.random() * 100 + '%';
-    s.style.animationDuration = (8 + Math.random() * 14) + 's';
-    s.style.animationDelay = (Math.random() * 12) + 's';
-    s.style.fontSize = (0.8 + Math.random() * 1.8) + 'rem';
-    hbg.appendChild(s);
+    s.textContent = set[Math.floor(Math.random() * set.length)];
+    s.style.cssText = `
+      left:${Math.random()*100}%;
+      font-size:${.7+Math.random()*2}rem;
+      animation-duration:${9+Math.random()*14}s;
+      animation-delay:${Math.random()*15}s;
+    `;
+    pEl.appendChild(s);
   }
 
-  // Generate stars
-  const starsEl = document.getElementById('stars');
-  for (let i = 0; i < 60; i++) {
-    const s = document.createElement('div');
-    s.className = 'star';
-    s.style.left = Math.random() * 100 + '%';
-    s.style.top  = Math.random() * 100 + '%';
-    s.style.animationDuration = (2 + Math.random() * 4) + 's';
-    s.style.animationDelay    = (Math.random() * 5) + 's';
-    s.style.width = s.style.height = (2 + Math.random() * 4) + 'px';
-    starsEl.appendChild(s);
-  }
-
-  // Click confetti
-  document.addEventListener('click', (e) => {
-    for (let i = 0; i < 8; i++) {
+  /* ── Click burst ── */
+  document.addEventListener('click', e => {
+    const icons = ['👑','❤️','🔥','💘','🔴','✨','⚡'];
+    for (let i = 0; i < 10; i++) {
       const el = document.createElement('span');
-      el.textContent = ['❤️','🔴','💘','👑','🔥','✨'][Math.floor(Math.random()*6)];
+      el.textContent = icons[Math.floor(Math.random()*icons.length)];
+      const angle = Math.random() * 360;
+      const dist  = 70 + Math.random() * 110;
       el.style.cssText = `
         position:fixed; left:${e.clientX}px; top:${e.clientY}px;
-        pointer-events:none; z-index:9999; font-size:${1+Math.random()*1.5}rem;
-        transition: transform 1s ease, opacity 1s;
-        transform: translate(0,0);
+        pointer-events:none; z-index:9999;
+        font-size:${1+Math.random()*1.6}rem;
+        transition: transform 1.1s ease, opacity 1.1s;
       `;
       document.body.appendChild(el);
-      const angle = Math.random() * 360;
-      const dist = 60 + Math.random() * 100;
-      setTimeout(() => {
-        el.style.transform = `translate(${Math.cos(angle)*dist}px, ${Math.sin(angle)*dist - 60}px)`;
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        el.style.transform = `translate(${Math.cos(angle/57.3)*dist}px,${Math.sin(angle/57.3)*dist-80}px)`;
         el.style.opacity = '0';
-      }, 10);
-      setTimeout(() => el.remove(), 1100);
+      }));
+      setTimeout(() => el.remove(), 1200);
     }
   });
+
+  /* ── Buttons ── */
+  function simClick() {
+    document.body.style.transition = 'background .4s';
+    document.body.style.background = '#ff0000';
+    setTimeout(() => document.body.style.background = '', 400);
+
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+      position:fixed; inset:0; z-index:99999;
+      background:#000000cc; display:flex; align-items:center;
+      justify-content:center; flex-direction:column; gap:16px;
+      animation: fadeInO .3s both;
+    `;
+    overlay.innerHTML = `
+      <style>@keyframes fadeInO{from{opacity:0}to{opacity:1}}</style>
+      <div style="font-family:'Bangers',cursive;font-size:clamp(2rem,8vw,4.5rem);color:#ffcccc;text-align:center;text-shadow:4px 4px 0 #3a0000;letter-spacing:4px;line-height:1.2">
+        👑 FPYY É SUB DONO!! 👑<br>
+        <span style="font-size:.55em;color:#ff8888">LEVIH FEZ A ESCOLHA CERTA</span>
+      </div>
+      <div style="font-size:4rem;animation:spin 1s linear infinite">🎉</div>
+      <button onclick="this.parentElement.remove()" style="font-family:'Bangers',cursive;font-size:1.4rem;padding:12px 34px;border-radius:50px;background:#cc0000;color:#fff;border:2px solid #ff4444;cursor:pointer;letter-spacing:2px">FECHAR</button>
+    `;
+    document.body.appendChild(overlay);
+
+    for (let i = 0; i < 5; i++) {
+      setTimeout(() => {
+        for (let j = 0; j < 16; j++) {
+          const b = document.createElement('span');
+          b.textContent = ['👑','❤️','🔥','🎉','💘'][Math.floor(Math.random()*5)];
+          const x = Math.random() * window.innerWidth;
+          b.style.cssText = `position:fixed;left:${x}px;top:110vh;font-size:2rem;z-index:999999;animation:rise 2s ease both;animation-delay:${Math.random()*.5}s`;
+          document.body.appendChild(b);
+          setTimeout(() => b.remove(), 2600);
+        }
+      }, i*300);
+    }
+  }
+
+  let fugas = 0;
+  function fugeBtn() {
+    fugas++;
+    if (fugas > 6) { naoClick(); return; }
+    const btn = document.getElementById('btnNao');
+    const maxX = window.innerWidth  - 160;
+    const maxY = window.innerHeight - 60;
+    btn.style.position = 'fixed';
+    btn.style.left = Math.random() * maxX + 'px';
+    btn.style.top  = Math.random() * maxY + 'px';
+    btn.style.zIndex = '999';
+  }
+
+  function naoClick() {
+    const btn = document.getElementById('btnNao');
+    btn.textContent = '🤡 errou';
+    btn.style.pointerEvents = 'none';
+    setTimeout(() => {
+      btn.style.transition = 'all .4s';
+      btn.style.transform = 'scale(0) rotate(720deg)';
+      btn.style.opacity = '0';
+    }, 600);
+  }
 </script>
 </body>
 </html>
